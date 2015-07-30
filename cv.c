@@ -26,7 +26,8 @@ typedef struct {
 typedef item_t job_t;
 typedef item_t school_t;
 typedef item_t lang_t;
-typedef item_t project_t;
+typedef item_t honor_t;
+
 
 #define CURRENT 0 
 
@@ -134,6 +135,25 @@ lang_t * langs[] = {
         NULL
 };
 
+/* Honors */
+honor_t honors = {
+        .description = {
+                "1st place at hacck.io (2014 UVA Hackathon) for Givr. http://devpost.com/software/givr",
+				"Best Mobile Hack at UVAHacks2015 for Boka. https://github.com/dhpark/Boka",
+				"3rd place at TribeHacks (2014 W&M Hackathon) for Huddle. http://devpost.com/software/huddle",
+				"2nd place at Microsoft Coding Challenge 2014.",
+				"2nd place at Invictus Case Competition 2015.",
+				"69th Virginia Student Lt. Governor.",
+				"Represented the U.S. at 2012 Intel Science fair for creating a novel treatment and diagnostic for pancreatic cancer.",
+				"Captain of S.M.I.L.E.S Crew, William & Mary’s breakdancing crew. Performed in 2014 Vans Warped Tour. ",
+                NULL
+        }
+};
+
+honor_t * hon[] = {
+        &honors,
+        NULL
+};
 void print_company(item_t * item) {
         char started[100];
         char left[100];
@@ -166,32 +186,41 @@ void print_blurb(item_t * item){
                 printf("- %s\n", *desc);
         }
 }
+
 int main(int argc, char ** argv) {
 
         school_t ** s = school;
 		job_t ** j = jobs;
 		lang_t ** l = langs;
+		honor_t ** h = hon;
 
         puts("");
         printf("%s\n%s\n%s\n\n", name, email, address);
 
-		puts("Education\n");
+		puts("-Education-\n");
 		while (*s) {
 			print_company(*s);
 			s++;
 		}
 
-        puts("Employment\n");
+        puts("-Employment-\n");
 
 		while (*j) {
 			print_company(*j);
 			j++;
 		}
 
-		puts("Languages\n");
+		puts("-Languages-\n");
 
 		while (*l) {
 			print_blurb(*l);
 			l++;
+		}
+
+		puts("\n-Honors-\n");
+
+		while (*h) {
+			print_blurb(*h);
+			h++;
 		}
 }
