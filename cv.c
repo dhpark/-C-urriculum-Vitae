@@ -1,3 +1,9 @@
+/*
+* This is my "C"urriculum Vitae
+* Based on hacker news post of the resume of https://github.com/klange
+* Shows knowledge in pointers, structs and references.
+* TODO: String formatting and a unified print function
+*/
 
 #include <stdio.h>
 #include <time.h>
@@ -36,6 +42,7 @@ const char * name    = "Daniel Park";
 const char * email   = "dhpark01@email.wm.edu";
 const char * address = "4906 Sunset Lane\n"
                        "Annandale, VA, 22003";
+
 /* Education */
 school_t williammary = {
         .school   = "College of William & Mary",
@@ -54,8 +61,6 @@ school_t * school[] = {
 	NULL
 };
 
-
-
 /* Employment History */
 job_t capital_one = {
         .company  = "Capital One",
@@ -65,8 +70,8 @@ job_t capital_one = {
         .left     = CURRENT,
         .description = {
                 "Coded and designed in a team of 4 to build Dash, a sprint tracking web application for managers of agile teams.",
-                "Developed full-stack utilizing Spring, Sass, AngularJS, Jenkins, Hudson, SonarQube, Splunk, JIRA and Git.",
-                "Assisted other interns with UI/UX fundamentals.",
+                "Developed Dash full-stack utilizing Spring, Sass, AngularJS, Jenkins, Hudson, SonarQube, Splunk, JIRA and Git.",
+                "Provided critical input in design and UI. Assisted other interns with UI/UX fundamentals.",
                 NULL
         }
 };
@@ -74,7 +79,7 @@ job_t capital_one = {
 job_t vagabond_vending = {
         .company  = "Vagabond Vending",
         .location = "Washington D.C.",
-        .title    = "Software Engineering Intern",
+        .title    = "Web Development Intern",
         .started  = 1398988800,
         .left     = 1401667200,
         .description = {
@@ -87,7 +92,7 @@ job_t vagabond_vending = {
 job_t bio_lab = {
         .company  = "W&M Developmental Biology Lab",
         .location = "Williamsburg, Virginia",
-        .title    = "Software Engineering Intern",
+        .title    = "Programmer",
         .started  = 1378166400,
         .left     = 1386979200,
         .description = {
@@ -111,7 +116,6 @@ job_t geico = {
         }
 };
 
-
 job_t * jobs[] = {
         &capital_one,
         &vagabond_vending,
@@ -125,7 +129,7 @@ lang_t languages = {
         .description = {
                 "Proficient: Python, HTML, CSS (Sass and LESS), LaTex.",
                 "Familiar: Java, JavaScript (jQuery and AngularJS), PHP, C, C++ and SQL.",
-                "Lingual: English (native), Spanish (intermediate), Korean (intermediate).",
+                "Natural: English (native), Spanish (intermediate), Korean (intermediate).",
                 NULL
         }
 };
@@ -154,6 +158,7 @@ honor_t * hon[] = {
         &honors,
         NULL
 };
+
 void print_company(item_t * item) {
         char started[100];
         char left[100];
