@@ -207,7 +207,7 @@ int main(int argc, char ** argv) {
 			print_company(*s);
 			s++;
 		}
-
+ 
         puts("-Employment-\n");
 
 		while (*j) {
