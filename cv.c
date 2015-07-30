@@ -34,6 +34,23 @@ const char * name    = "Daniel Park";
 const char * email   = "dhpark01@email.wm.edu";
 const char * address = "4906 Sunset Lane\n"
                        "Annandale, VA, 22003";
+/* Education */
+school_t williammary = {
+        .school   = "College of William & Mary",
+        .location = "Williamsburg, VA",
+        .degree   = "Pursuing a BS in Computer Science",
+        .started  = 1345766400,
+        .left     = CURRENT,
+        .description = {
+                "Class of 2016, 3.4 GPA Cumulative.",
+                NULL
+        }
+};
+
+school_t * school[] = {
+	&williammary,
+	NULL
+};
 
 void print_item(item_t * item) {
         char started[100];
@@ -64,10 +81,15 @@ void print_item(item_t * item) {
 int main(int argc, char ** argv) {
 
         school_t ** s = school;
-        job_t ** j = jobs;
-        project_t ** p;
 
         puts("");
         printf("%s\n%s\n%s\n\n", name, email, address);
 
+        puts("Education");
+		
+		while (*s) {
+			puts("");
+			print_item(*s);
+			s++;
+		}
 }
