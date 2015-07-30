@@ -25,6 +25,7 @@ typedef struct {
 
 typedef item_t job_t;
 typedef item_t school_t;
+typedef item_t lang_t;
 typedef item_t project_t;
 
 #define CURRENT 0 
@@ -118,7 +119,22 @@ job_t * jobs[] = {
         NULL
 };
 
-void print_item(item_t * item) {
+/* Languages */
+lang_t languages = {
+        .description = {
+                "Proficient: Python, HTML, CSS (Sass and LESS), LaTex.",
+                "Familiar: Java, JavaScript (jQuery and AngularJS), PHP, C, C++ and SQL.",
+                "Lingual: English (native), Spanish (intermediate), Korean (intermediate).",
+                NULL
+        }
+};
+
+lang_t * langs[] = {
+        &languages,
+        NULL
+};
+
+void print_company(item_t * item) {
         char started[100];
         char left[100];
         struct tm * ti;
@@ -144,24 +160,38 @@ void print_item(item_t * item) {
         puts("");
 }
 
+void print_blurb(item_t * item){
+		const char ** desc;
+        for (desc = item->description; *desc; desc++) {
+                printf("- %s\n", *desc);
+        }
+}
 int main(int argc, char ** argv) {
 
         school_t ** s = school;
 		job_t ** j = jobs;
+		lang_t ** l = langs;
 
         puts("");
         printf("%s\n%s\n%s\n\n", name, email, address);
 
 		puts("Education\n");
 		while (*s) {
-			print_item(*s);
+			print_company(*s);
 			s++;
 		}
 
         puts("Employment\n");
 
 		while (*j) {
-			print_item(*j);
+			print_company(*j);
 			j++;
+		}
+
+		puts("Languages\n");
+
+		while (*l) {
+			print_blurb(*l);
+			l++;
 		}
 }
